@@ -49,14 +49,14 @@ class SocialMediaLinks extends StatelessWidget {
           ),
           ...socialMediaLink.keys.map((Platform) {
             return ElevatedButton(
-                onPressed: () => _launchURL(SocialMediaLinks[Platform]!),
+                onPressed: () => _launchURL(socialMediaLink[Platform]!),
                 child: Text('platform'),
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                   backgroundColor: Colors.blue,
                   textStyle: TextStyle(fontSize: 18),
                 ));
-          }),
+          }).toList(),
         ]),
       ),
     );
