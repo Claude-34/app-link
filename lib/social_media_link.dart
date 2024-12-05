@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+// import 'package:url_launcher/url_launcher.dart';
 
 class SocialMediaLinkApp extends StatelessWidget {
   const SocialMediaLinkApp({super.key});
@@ -24,13 +24,13 @@ class SocialMediaLinks extends StatelessWidget {
     'GitHub': 'https://github.com/your-profile',
     'WhatsApp': 'https://wa.me/your-phone-number',
   };
-  void _launchURL(String url) async {
-    if (await canLaunchUrl(url as Uri)) {
-      await launchUrl(url as Uri);
-    } else {
-      throw 'could not launch $url';
-    }
-  }
+  // void _launchURL(String url) async {
+  //   if (await canLaunchUrl(url as Uri)) {
+  //     await launchUrl(url as Uri);
+  //   } else {
+  //     throw 'could not launch $url';
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,9 @@ class SocialMediaLinks extends StatelessWidget {
           ),
           ...socialMediaLink.keys.map((Platform) {
             return ElevatedButton(
-                onPressed: () => _launchURL(socialMediaLink[Platform]!),
+                onPressed: () => {
+                  // _launchURL(socialMediaLink[Platform]!)
+                  },
                 child: Text('platform'),
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:slide_to_act/slide_to_act.dart';
 
+import 'social_mediaLinks.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,7 +51,10 @@ class SlidderPage extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 8.0, top: 30),
                 child: Text(
                   "The world at \nyour fingers tips",
-                  style: TextStyle(fontSize: 35, color: Color(0xffFFbf00)),
+                  style: TextStyle(
+                      fontSize: 35,
+                      color: Color(0xffFFbf00),
+                      fontWeight: FontWeight.w900),
                 ),
               )),
           Positioned(

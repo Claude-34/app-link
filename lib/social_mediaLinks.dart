@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_media_links/constant.dart';
-import 'package:url_launcher/url_launcher.dart';
+// import 'package:url_launcher/url_launcher.dart';
 
 class SocialMedia extends StatefulWidget {
   SocialMedia({super.key});
@@ -47,16 +47,16 @@ class _SocialMediaState extends State<SocialMedia> {
     'tiktok.com',
     'instagram.com'
   ];
-  Future<void> _launchURL({String link = 'https://google.com'}) async {
-    final Uri url = Uri.parse(link);
-    if (await canLaunchUrl(url)) {
-      print("launching application");
-      await launchUrl(url);
-    } else {
-      print("ERROR LAUNCHING APPLICATION");
-      throw 'Could not launch $url';
-    }
-  }
+  // Future<void> _launchURL({String link = 'https://google.com'}) async {
+  //   final Uri url = Uri.parse(link);
+  //   if (await canLaunchUrl(url)) {
+  //     print("launching application");
+  //     await launchUrl(url);
+  //   } else {
+  //     print("ERROR LAUNCHING APPLICATION");
+  //     throw 'Could not launch $url';
+  //   }
+  // }
 
   // final Uri toLaunch = Uri(
   //   scheme: 'https',
@@ -80,10 +80,10 @@ class _SocialMediaState extends State<SocialMedia> {
         itemCount: 6, // Number of items
         itemBuilder: (context, index) {
           return InkWell(
-            onTap: () 
-              
-              => _launchURL(link: links[index]),
-              
+            onTap: () {},
+
+            // => _launchURL(link: links[index]),
+
             child: Card(
               color: Colors.white,
               child: Padding(
