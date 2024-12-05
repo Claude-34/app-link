@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:social_media_links/social_media_link.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -8,30 +8,89 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          // This is the theme of your application.
-          //
-          // TRY THIS: Try running your application with "flutter run". You'll see
-          // the application has a purple toolbar. Then, without quitting the app,
-          // try changing the seedColor in the colorScheme below to Colors.green
-          // and then invoke "hot reload" (save your changes or press the "hot
-          // reload" button in a Flutter-supported IDE, or press "r" if you used
-          // the command line to start the app).
-          //
-          // Notice that the counter didn't reset back to zero; the application
-          // state is not lost during the reload. To reset the state, use hot
-          // restart instead.
-          //
-          // This works for code too, not just values: Most code changes can be
-          // tested with just a hot reload.
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home: const SocialMediaLinkApp());
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: const SlidderPage(),
+    );
+  }
+}
+
+class SlidderPage extends StatelessWidget {
+  const SlidderPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: Image.asset(
+                "assets/images/img.png",
+                fit: BoxFit.cover,
+              )
+              // SvgPicture.asset(
+              //   "assets/images/img.svg",
+              //   fit: BoxFit.cover,
+              // )
+
+              ),
+          Positioned(
+              top: MediaQuery.of(context).size.height / 2.4,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 8.0, top: 30),
+                child: Text(
+                  "The world at \nyour fingers tips",
+                  style: TextStyle(fontSize: 35, color: Color(0xffFFbf00)),
+                ),
+              )),
+          Positioned(
+              top: MediaQuery.of(context).size.height / 1.8,
+              child: const Padding(
+                padding: EdgeInsets.only(left: 8.0, top: 13),
+                child: Text(
+                  "Connect with everybody and \nanybody through us",
+                  style: TextStyle(
+                    fontSize: 21,
+                  ),
+                ),
+              )),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8.0, right: 8.0, left: 8.0),
+            child: SlideAction(
+              text: "Slide to unlock",
+              textStyle: TextStyle(color: Color(0xff000000)),
+              alignment: Alignment.bottomCenter,
+              innerColor: Colors.black,
+              outerColor: Colors.grey.shade200,
+              sliderButtonIcon: const Icon(
+                Icons.lock,
+                color: Colors.white,
+              ),
+              submittedIcon: const Icon(
+                Icons.done,
+                color: Colors.green,
+              ),
+              animationDuration: const Duration(seconds: 1),
+              onSubmit: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SocialMedia()));
+              },
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          )
+        ],
+      ),
+    );
   }
 }
